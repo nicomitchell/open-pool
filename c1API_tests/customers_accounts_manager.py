@@ -11,7 +11,9 @@ while(True):
         "2) View Accounts\n" +
         "3) Add Customer\n" +
         "4) Add Account\n" +
-        "5) Exit\n")
+        "5) Create CUSTOMER .json file\n" +
+        "6) Create ACCOUNT .json file\n" +
+        "7) Exit\n")
 
     choice = int(input("What would you like to do?\t"))
 
@@ -51,8 +53,34 @@ while(True):
             if response_code != 201:
                 print("Account could not be created. Response code: " + str(response_code))
             else:
-                print("Account created successfully!")
+                print("Account created successfully!")       
         else:
             print("ID could not be found.")
+    elif choice == 5:
+        url = '%scustomers?key=%s' % (url_base,api_key)
+        response = requests.get(url)
+        file_name = str(input("Enter the name of the file you want to create:\t"))
+        if "." in file_name:
+            file_name = file_name.split(".")[0]
+        full_name = file_name + ".json"
+        f = open(full_name, 'w')
+        file_text = json_format(str(json.dumps(response.text)))
+        f.write(file_text)
+        f.close()
+        print("Now in file " + file_name +":\t" + file_text)
+        print("Process complete.")
+    elif choice == 6:
+        url = '%saccounts?key=%s' %(url_base,api_key)
+        response = requests.get(url)
+        file_name = str(input("Enter the name of the file you want to create:\t"))
+        if "." in file_name:
+            file_name = file_name.split(".")[0]
+        full_name = file_name + ".json"
+        f = open(full_name, 'w')
+        file_text = json_format(str(json.dumps(response.text)))
+        f.write(file_text)
+        f.close()
+        print("Now in file " + file_name +":\t" + file_text)
+        print("Process complete.")
     else:
         break
