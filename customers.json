@@ -1,0 +1,33 @@
+[{"_id":"59eaedf4b390353c953a1534",
+"type":"Checking",
+"nickname":"Acc",
+"rewards":4000,
+"balance":12960,
+"customer_id":"59eae941a73e4942cdafe3ba"},
+{"_id":"59eaf587b390353c953a1536",
+"type":"Checking",
+"nickname":"Acc",
+"rewards":4000,
+"balance":12960,
+"customer_id":"59eae941a73e4942cdafe3ba"}]
+
+[{"_id":"59eae942a73e4942cdafe3bc",
+"type":"Checking",
+"nickname":"Margret's Account",
+"rewards":14612,
+"balance":1370,
+"customer_id":"59eae940a73e4942cdafe3b8"},
+{"_id":"59eaed61b390353c953a1533",
+"type":"Savings",
+"nickname":"test",
+"rewards":10000,
+"balance":10000,
+"customer_id":"59eae940a73e4942cdafe3b8"}]
+
+[{"_id":"59eae942a73e4942cdafe3bb",
+"type":"Savings",
+"nickname":"Lizzie's Account",
+"rewards":11199,
+"balance":26893,
+"customer_id":"59eae941a73e4942cdafe3b9"}]
+
