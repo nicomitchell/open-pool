@@ -4,4 +4,24 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
+account	c1API_tests/create_main_account.py	/^account = {$/;"	kind:variable	line:8
+apiKey	c1API_tests/test.py	/^apiKey = 'a1e0eb837b518f02a40fb0319ba0c776'$/;"	kind:variable	line:7
+api_key	c1API_tests/create_main_account.py	/^api_key = 'a1e0eb837b518f02a40fb0319ba0c776'$/;"	kind:variable	line:5
+create_main_account.py	c1API_tests/create_main_account.py	1;"	kind:file	line:1
+cust_IDs	c1API_tests/test.py	/^cust_IDs = ['59eae941a73e4942cdafe3ba', '59eae940a73e4942cdafe3b8','59eae941a73e4942cdafe3b9']$/;"	kind:variable	line:6
+customer_key	c1API_tests/create_main_account.py	/^customer_key = '59eb784cb390353c953a1554'$/;"	kind:variable	line:4
+data	c1API_tests/create_main_account.py	/^	data=json.dumps(account),$/;"	kind:variable	line:17
+data	c1API_tests/create_main_account.py	/^data = str(json.dumps(r.text))$/;"	kind:variable	line:24
+f	c1API_tests/test.py	/^f = open('customers.json','w')$/;"	kind:variable	line:8
+headers	c1API_tests/create_main_account.py	/^	headers={'content-type':'application\/json'},$/;"	kind:variable	line:18
+json	c1API_tests/create_main_account.py	/^import json$/;"	kind:namespace	line:1
+json	c1API_tests/test.py	/^import json$/;"	kind:namespace	line:3
+r	c1API_tests/create_main_account.py	/^r = requests.get(url)$/;"	kind:variable	line:23
+r	c1API_tests/test.py	/^    r = urllib.request.urlopen(url)$/;"	kind:variable	line:12
+request	c1API_tests/test.py	/^import urllib.request$/;"	kind:namespace	line:4
+requests	c1API_tests/create_main_account.py	/^import requests$/;"	kind:namespace	line:2
+response	c1API_tests/create_main_account.py	/^response = requests.post( $/;"	kind:variable	line:15
 test.py	c1API_tests/test.py	1;"	kind:file	line:1
+txt	c1API_tests/test.py	/^    txt = r.read().decode('utf-8')$/;"	kind:variable	line:13
+txt	c1API_tests/test.py	/^    txt = txt.replace(',',',\\n')$/;"	kind:variable	line:14
+urllib	c1API_tests/test.py	/^import urllib.request$/;"	kind:namespace	line:4
