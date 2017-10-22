@@ -1,6 +1,6 @@
 import json
 import requests
-from json_format_customers import json_format
+from json_formatter import json_format
 
 # api_key = 'a1e0eb837b518f02a40fb0319ba0c776'
 # url = 'http://api.reimaginebanking.com/customers?key={}'.format(api_key)

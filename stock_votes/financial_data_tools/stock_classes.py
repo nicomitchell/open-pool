@@ -1,6 +1,8 @@
 import json
 import requests
+import create_transaction
 
+#links to Capital One Nessie api
 class bank_account(object):
     url_base = 'http://api.reimaginebanking.com/'
     api_key = 'a1e0eb837b518f02a40fb0319ba0c776'
@@ -8,9 +10,8 @@ class bank_account(object):
     def __init__(self,acc_id):
         if acc_id == 0:
             self.response = {'balance' : 0,'type' : 0, 'rewards' : 0, 'customer_id' : 0,'_id' : 0,'nickname' : 0}
-        self.url = '%saccounts/%s?key=%s' % (self.url_base,acc_id,self.api_key)
-        self.response = json.loads(requests.get(self.url).text)
-    #Returns .json dictionary
+        self.url_acc = '%saccounts/%s?key=%s' % (self.url_base,acc_id,self.api_key)
+        self.response = json.loads(requests.get(self.url_acc).text)
     def get_response(self):
         return self.response
     def get_balance(self):
@@ -25,7 +26,13 @@ class bank_account(object):
         return self.response['_id']
     def get_acc_nickname(self):
         return self.response['nickname']
-
+    def update(self):
+        self.response = json.loads(requests.get(self.url_acc).text)
+    def perform_transaction(self,value,target,desc):
+        url = '%stransfers?key=%s' % (url_base,api_key)
+        medium = 'balance'
+        payee_id = target.get_acc_id()
+        return create_transaction(url,medium,payee_id,value,desc)
 
 
 class user(object):
@@ -34,32 +41,39 @@ class user(object):
         self.email_address = email_address
         self.bank_acc = None
         self.usd_balance = 0
+        self.btc_balance = 0
+        self.ether_balance = 0
+        self.active_investments = list()
         if acc_id != '0':
             self.link_bank_account(acc_id)
     def link_bank_account(self,acc_id):
         self.bank_acc = bank_account(acc_id)
         self.usd_balance = self.bank_acc.get_balance()
+    def invest(self,pool,value):
+        i = investment(self,value,pool)
 
 
 class pool(object):
-    def __init__(self,creator,total_value,begin_conditions = list(),
+    def __init__(self,name,creator,total_value,begin_conditions = list(),
                 end_conditions  = list(),stock_options = list()):
+        self.name = name
         self.creator = creator
         self.investments = [investment(creator,total_value,self)]
         self.total_value = total_value
         self.begin_conditions = begin_conditions
         self.end_conditions = end_conditions
         self.stock_options = stock_options
-    def add_investment(self,investment):
-        self.investments.append(investment)
-        self.total_value += investment.value
 
 class investment(object):
     def __init__(self,user,value,pool):
         self.investor = user
         self.value = value
         self.pool = pool
-
+        pool.investments.append(self)
+        pool.total_value += value
+        user.active_investments.append(pool)
+        desc = "Investment:\n" + user.screen_name + " : $" + value + " to " + pool.name
+        user.bank_acc.perform_transaction(value,"""MAINACC""",desc)
 
 # item = bank_account('59eb79b5b390353c953a1555')
 # print(item.get_acc_id())

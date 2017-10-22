@@ -2,7 +2,7 @@ import json
 import requests
 from create_account import make_new_account
 from create_new_customer import make_customer
-from json_format_customers import json_format
+from json_formatter import json_format
 
 api_key = "a1e0eb837b518f02a40fb0319ba0c776"
 url_base = "http://api.reimaginebanking.com/"
