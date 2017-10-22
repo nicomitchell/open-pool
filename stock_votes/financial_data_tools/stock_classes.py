@@ -1,7 +1,16 @@
 import json
 import requests
 import create_transaction
+import sys
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
 
+cred = credentials.Certificate('C://users/unorc/OneDrive/Documents/GitHub/open-pool-firebase-adminsdk-xc8y8-7b28bfb261.json')
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://open-pool.firebaseio.com'
+})
+ref = db.reference('users')
 #links to Capital One Nessie api
 class bank_account(object):
     url_base = 'http://api.reimaginebanking.com/'
@@ -12,6 +21,7 @@ class bank_account(object):
             self.response = {'balance' : 0,'type' : 0, 'rewards' : 0, 'customer_id' : 0,'_id' : 0,'nickname' : 0}
         self.url_acc = '%saccounts/%s?key=%s' % (self.url_base,acc_id,self.api_key)
         self.response = json.loads(requests.get(self.url_acc).text)
+        self.acc_id = acc_id
     def get_response(self):
         return self.response
     def get_balance(self):
@@ -36,8 +46,8 @@ class bank_account(object):
 
 
 class user(object):
-    def __init__(self,screen_name,email_address,acc_id = '0'):
-        self.screen_name = screen_name
+    def __init__(self,user_id,email_address,acc_id = '0'):
+        self.user_id = user_id
         self.email_address = email_address
         self.bank_acc = None
         self.usd_balance = 0
@@ -51,6 +61,21 @@ class user(object):
         self.usd_balance = self.bank_acc.get_balance()
     def invest(self,pool,value):
         i = investment(self,value,pool)
+    def update(self):
+        link_bank_account(acc_id)
+    def updateDB(self):
+        firebase_reference = db.reference('users')
+        firebase_reference.child(self.user_id).set({
+            'email_address' : self.email_address,
+            'picture' : firebase_reference.child('picture').get(),
+            'screen_name' : firebase_reference.child('screen_name').get(),
+            'token' : firebase_reference.child('token').get(),
+            'usd_balance' : self.usd_balance,
+            'btc_balance' : self.btc_balance,
+            'ether_balance' : self.ether_balance,
+            'userid' : self.user_id
+            }
+        )
 
 
 class pool(object):
@@ -63,6 +88,17 @@ class pool(object):
         self.begin_conditions = begin_conditions
         self.end_conditions = end_conditions
         self.stock_options = stock_options
+    def updateDB(self):
+        firebase_reference = db.reference('pools')
+        firebase_reference.child(self.name).set( {
+            'assets_suggestions' : self.stock_options,
+            'creator' : self.creator.user_id,
+            'max' : firebase_reference.child('max').get(),
+            'name' : self.name,
+            'number_investors' : len(self.investments)
+            }
+        )
+
 
 class investment(object):
     def __init__(self,user,value,pool):
@@ -73,7 +109,7 @@ class investment(object):
         pool.total_value += value
         user.active_investments.append(pool)
         desc = "Investment:\n" + user.screen_name + " : $" + value + " to " + pool.name
-        user.bank_acc.perform_transaction(value,"""MAINACC""",desc)
+        user.bank_acc.perform_transaction(value,"""MAINACC""",desc) 
 
 # item = bank_account('59eb79b5b390353c953a1555')
 # print(item.get_acc_id())

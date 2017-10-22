@@ -7,6 +7,7 @@ def create_transaction(url,medium,payee_id,amount,transaction_date,desc):
         "medium" : medium,
         "payee_id" : payee_id,
         "amount" : amount,
+        "transaction_data" : transaction_date,
         "description" : desc
     }
     response = requests.post( 
