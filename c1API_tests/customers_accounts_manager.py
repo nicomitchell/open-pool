@@ -20,12 +20,12 @@ while(True):
     if choice == 1:
         url = '%scustomers?key=%s' % (url_base,api_key)
         response = requests.get(url)
-        print("Customers: \n" + json_format(str(json.dumps(response.text))))
+        print("Customers: \n" + json_format(str(json.loads(response.text))))
         print("Process complete.")
     elif choice == 2:
         url = '%saccounts?key=%s' %(url_base,api_key)
         response = requests.get(url)
-        print("Accounts: \n" + json_format(str(json.dumps(response.text))))
+        print("Accounts: \n" + json_format(str(json.loads(response.text))))
         print("Process complete.")
     elif choice == 3:
         first_name = str(input("First: "))
@@ -64,7 +64,7 @@ while(True):
             file_name = file_name.split(".")[0]
         full_name = file_name + ".json"
         f = open(full_name, 'w')
-        file_text = json_format(str(json.dumps(response.text)))
+        file_text = json_format(str(json.loads(response.text)))
         f.write(file_text)
         f.close()
         print("Now in file " + file_name +":\t" + file_text)
@@ -77,7 +77,7 @@ while(True):
             file_name = file_name.split(".")[0]
         full_name = file_name + ".json"
         f = open(full_name, 'w')
-        file_text = json_format(str(json.dumps(response.text)))
+        file_text = json_format(str(json.loads(response.text)))
         f.write(file_text)
         f.close()
         print("Now in file " + file_name +":\t" + file_text)

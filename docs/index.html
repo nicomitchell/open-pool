@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Open Pool</title>
-    </head>
-    <body>
-        <span>this app is so cool</span> 
-        <p>it’s straight up magic</p>
-        <span class="highlight"><script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script></span>
-    </body>
-</html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Democratized Investor Pools</title>
+
+    <!-- Boot Strap: Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Boot Strap: jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Boot Strap: Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- AngularJS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+
+    <!-- my js files -->
+    <script src="script.js"></script>
+  </head>
+  <body ng-app="openPool">
+    <h1>Hello, click login to login with Google and get started using pools.</h1>
+    <div ng-controller="myCtrl">
+    {{user}}
+    <button ng-click="login()">Log in</button>
+    <button ng-click="logout()">Log out</button>
+    <button ng-click="">nothing</button>
+   
+    <br><br>
+ 
+    <form ng-submit="saveNewPool()">
+        <label>Pool Name: </label>
+        <input type="text" ng-model="pool.name">
+
+        <label>Max Investors: </label>
+        <input type="text" ng-model="pool.max">
+
+        <button type="submit">create pool</button>
+    </form>
+
+    <table>
+      <tr ng-repeat="x in pools">
+        <td>{{ x.name }}</td>
+        <td>{{ x.max }}</td>
+      </tr>
+    </table>
+
+
+    </div>
+  <br><br>
+

@@ -1,118 +1,82 @@
-"[
+[
 	{
-		\"_id\":\"59eae942a73e4942cdafe3bb\",
-		\"type\":\"Savings\",
-		\"nickname\":\"Lizzie's Account\",
-		\"rewards\":11199,
-		\"balance\":26893,
-		\"customer_id\":\"59eae941a73e4942cdafe3b9\"
-	},
-		
-	{
-		\"_id\":\"59eae942a73e4942cdafe3bc\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Margret's Account\",
-		\"rewards\":14612,
-		\"balance\":1370,
-		\"customer_id\":\"59eae940a73e4942cdafe3b8\"
-	},
-		
-	{
-		\"_id\":\"59eaed61b390353c953a1533\",
-		\"type\":\"Savings\",
-		\"nickname\":\"test\",
-		\"rewards\":10000,
-		\"balance\":10000,
-		\"customer_id\":\"59eae940a73e4942cdafe3b8\"
-	},
-		
-	{
-		\"_id\":\"59eaedf4b390353c953a1534\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Acc\",
-		\"rewards\":4000,
-		\"balance\":12960,
-		\"customer_id\":\"59eae941a73e4942cdafe3ba\"
-	},
-		
-	{
-		\"_id\":\"59eaf587b390353c953a1536\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Acc\",
-		\"rewards\":4000,
-		\"balance\":12960,
-		\"customer_id\":\"59eae941a73e4942cdafe3ba\"
-	},
-		
-	{
-		\"_id\":\"59eb79b5b390353c953a1555\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Company account\",
-		\"rewards\":0,
-		\"balance\":200000,
-		\"customer_id\":\"59eb784cb390353c953a1554\"
-	},
-		
-	{
-		\"_id\":\"59eb8217b390353c953a155d\",
-		\"type\":\"Savings\",
-		\"nickname\":\"Acc\",
-		\"rewards\":0,
-		\"balance\":11688,
-		\"customer_id\":\"59eae941a73e4942cdafe3b9\"
-	},
-		
-	{
-		\"_id\":\"59eb8d1ab390353c953a1563\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Nico's Account\",
-		\"rewards\":617,
-		\"balance\":2432,
-		\"customer_id\":\"59eb7ee4b390353c953a1559\"
-	},
-		
-	{
-		\"_id\":\"59eb8d3cb390353c953a1564\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Nico's Account\",
-		\"rewards\":0,
-		\"balance\":16,
-		\"customer_id\":\"59eb7f64b390353c953a155b\"
-	},
-		
-	{
-		\"_id\":\"59eb8d6eb390353c953a1565\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Max's Account\",
-		\"rewards\":11,
-		\"balance\":382915,
-		\"customer_id\":\"59eb8bffb390353c953a1561\"
-	},
-		
-	{
-		\"_id\":\"59eba848b390353c953a158d\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Jared's Account\",
-		\"rewards\":122,
-		\"balance\":13466.42,
-		\"customer_id\":\"59eba6e7b390353c953a1588\"
-	},
-		
-	{
-		\"_id\":\"59eba8afb390353c953a158e\",
-		\"type\":\"Savings\",
-		\"nickname\":\"Jared's Life Savings\",
-		\"rewards\":466,
-		\"balance\":22499.18,
-		\"customer_id\":\"59eba6e7b390353c953a1588\"
-	},
-		
-	{
-		\"_id\":\"59ebb567b390353c953a15a7\",
-		\"type\":\"Checking\",
-		\"nickname\":\"Lisa's Account\",
-		\"rewards\":392.48,
-		\"balance\":11942.66,
-		\"customer_id\":\"59ebb44db390353c953a15a6\"
+		'_id': '59eae942a73e4942cdafe3bb',
+		 'type': 'Savings',
+		 'nickname': "Lizzie's Account",
+		 'rewards': 11199,
+		 'balance': 26893,
+		 'customer_id': '59eae941a73e4942cdafe3b9'},
+		 {'_id': '59eae942a73e4942cdafe3bc',
+		 'type': 'Checking',
+		 'nickname': "Margret's Account",
+		 'rewards': 14612,
+		 'balance': 1370,
+		 'customer_id': '59eae940a73e4942cdafe3b8'},
+		 {'_id': '59eaed61b390353c953a1533',
+		 'type': 'Savings',
+		 'nickname': 'test',
+		 'rewards': 10000,
+		 'balance': 10000,
+		 'customer_id': '59eae940a73e4942cdafe3b8'},
+		 {'_id': '59eaedf4b390353c953a1534',
+		 'type': 'Checking',
+		 'nickname': 'Acc',
+		 'rewards': 4000,
+		 'balance': 12960,
+		 'customer_id': '59eae941a73e4942cdafe3ba'},
+		 {'_id': '59eaf587b390353c953a1536',
+		 'type': 'Checking',
+		 'nickname': 'Acc',
+		 'rewards': 4000,
+		 'balance': 12960,
+		 'customer_id': '59eae941a73e4942cdafe3ba'},
+		 {'_id': '59eb79b5b390353c953a1555',
+		 'type': 'Checking',
+		 'nickname': 'Company account',
+		 'rewards': 0,
+		 'balance': 200000,
+		 'customer_id': '59eb784cb390353c953a1554'},
+		 {'_id': '59eb8217b390353c953a155d',
+		 'type': 'Savings',
+		 'nickname': 'Acc',
+		 'rewards': 0,
+		 'balance': 11688,
+		 'customer_id': '59eae941a73e4942cdafe3b9'},
+		 {'_id': '59eb8d1ab390353c953a1563',
+		 'type': 'Checking',
+		 'nickname': "Nico's Account",
+		 'rewards': 617,
+		 'balance': 2432,
+		 'customer_id': '59eb7ee4b390353c953a1559'},
+		 {'_id': '59eb8d3cb390353c953a1564',
+		 'type': 'Checking',
+		 'nickname': "Nico's Account",
+		 'rewards': 0,
+		 'balance': 16,
+		 'customer_id': '59eb7f64b390353c953a155b'},
+		 {'_id': '59eb8d6eb390353c953a1565',
+		 'type': 'Checking',
+		 'nickname': "Max's Account",
+		 'rewards': 11,
+		 'balance': 382915,
+		 'customer_id': '59eb8bffb390353c953a1561'},
+		 {'_id': '59eba848b390353c953a158d',
+		 'type': 'Checking',
+		 'nickname': "Jared's Account",
+		 'rewards': 122,
+		 'balance': 13466.42,
+		 'customer_id': '59eba6e7b390353c953a1588'},
+		 {'_id': '59eba8afb390353c953a158e',
+		 'type': 'Savings',
+		 'nickname': "Jared's Life Savings",
+		 'rewards': 466,
+		 'balance': 22499.18,
+		 'customer_id': '59eba6e7b390353c953a1588'},
+		 {'_id': '59ebb567b390353c953a15a7',
+		 'type': 'Checking',
+		 'nickname': "Lisa's Account",
+		 'rewards': 392.48,
+		 'balance': 11942.66,
+		 'customer_id': '59ebb44db390353c953a15a6'
 	}
-]"
+]
