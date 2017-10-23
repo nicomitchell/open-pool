@@ -1,7 +1,8 @@
 import json
 import requests
-import create_transaction
 import sys
+sys.path.append('C://users/unorc/OneDrive/Documents/GitHub/VandyHacks/stock_votes/financial_data_tools')
+from create_transaction import create_transaction
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
@@ -54,15 +55,18 @@ class user(object):
         self.btc_balance = 0
         self.ether_balance = 0
         self.active_investments = list()
+        self.acc_id = '0'
         if acc_id != '0':
             self.link_bank_account(acc_id)
     def link_bank_account(self,acc_id):
+        self.acc_id = acc_id
         self.bank_acc = bank_account(acc_id)
         self.usd_balance = self.bank_acc.get_balance()
     def invest(self,pool,value):
         i = investment(self,value,pool)
     def update(self):
-        link_bank_account(acc_id)
+        self.link_bank_account(self.acc_id)
+        return self.usd_balance
     def updateDB(self):
         firebase_reference = db.reference('users')
         firebase_reference.child(self.user_id).set({
