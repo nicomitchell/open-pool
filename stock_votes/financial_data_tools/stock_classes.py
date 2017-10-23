@@ -115,24 +115,3 @@ class investment(object):
         desc = "Investment:\n" + user.screen_name + " : $" + value + " to " + pool.name
         user.bank_acc.perform_transaction(value,"""MAINACC""",desc) 
 
-# item = bank_account('59eb79b5b390353c953a1555')
-# print(item.get_acc_id())
-# print(item.get_acc_nickname())
-# print(item.get_account_type())
-# print(item.get_balance())
-# print(item.get_customer_id())
-# print(item.get_rewards())
-
-# nico = user('Nico','namitc02@louisville.edu','59eb8d1ab390353c953a1563')
-# print(nico.screen_name + " " + nico.email_address + " " + str(nico.usd_balance))
-
-# p = pool(nico,20.00)
-
-# max_ = user('Max','fakeemail','59eb8d6eb390353c953a1565')
-
-# i = investment(max_,22.00,p)
-# p.add_investment(i)
-
-# for i in p.investments:
-#     print (i.investor.screen_name + " " + str(i.value))
-# print(p.total_value)
